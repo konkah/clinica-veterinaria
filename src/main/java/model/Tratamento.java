@@ -11,18 +11,18 @@ import java.util.List;
 public class Tratamento {
     private Date dataInicial;
     private Date dataFinal;
-    private List<Consulta> listaDeConsultas;
+    private List listaDeConsultas;
 
     public Tratamento(Date dataInicial) {
         this.dataInicial = dataInicial;
-        listaDeConsultas = new ArrayList<Consulta>();
+        listaDeConsultas = new ArrayList();
     }
     
     public void addConsulta(Consulta consulta){
         listaDeConsultas.add(consulta);
     }
     
-    public List<Consulta> getConsultas(){
+    public List getConsultas(){
         return listaDeConsultas;
     }
 

@@ -1,17 +1,16 @@
-    package view;
+package view;
 
 import java.util.ArrayList;
-import model.Cliente;
-import model.ClienteDAO;
+import model.Veterinario;
+import model.Veterinario;
+import model.VeterinarioDAO;
+import model.VeterinarioDAO;
 
-/**
- *
- * @author Plinio Vilela - prvilela@unicamp.br
- */
-public class ClienteTableModel extends GenericTableModel {
 
-    public ClienteTableModel(ArrayList vDados){
-        super(vDados, new String[]{"Nome","Endereço", "Telefone", "CEP"});
+public class VeterinarioTableModel extends GenericTableModel {
+
+    public VeterinarioTableModel(ArrayList vDados){
+        super(vDados, new String[]{"Nome","Endereco", "Telefone"});
     }
     
     @Override
@@ -23,8 +22,6 @@ public class ClienteTableModel extends GenericTableModel {
                 return String.class;
             case 2:
                 return String.class;
-            case 3:
-                return String.class;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -33,18 +30,15 @@ public class ClienteTableModel extends GenericTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Cliente cliente = (Cliente) vDados.get(rowIndex);
+        Veterinario veterinario = (Veterinario) vDados.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-               
-                return cliente.getNome();
+                return veterinario.getNome();
             case 1:
-                return cliente.getEndereco();
+                return veterinario.getEndereco();
             case 2:
-                return cliente.getTelefone();
-            case 3:
-                return cliente.getCep();
+                return veterinario.getTelefone();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -53,26 +47,23 @@ public class ClienteTableModel extends GenericTableModel {
     
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Cliente cliente = (Cliente) vDados.get(rowIndex);
+        Veterinario veterinario = (Veterinario) vDados.get(rowIndex);
 
         switch (columnIndex) {
             case 0:
-                cliente.setNome((String)aValue);
+                veterinario.setNome((String)aValue);
                 break;
             case 1:
-                cliente.setEndereco((String)aValue);
+            	veterinario.setEndereco((String)aValue);
                 break;
             case 2:
-                cliente.setTelefone((String)aValue);
-                break;
-            case 3:
-                cliente.setCep((String)aValue);
+            	veterinario.setTelefone((String)aValue);
                 break;
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
         
-        ClienteDAO.getInstance().update(cliente);
+        VeterinarioDAO.getInstance().update(veterinario);
     }    
     
     @Override

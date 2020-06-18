@@ -6,9 +6,10 @@
 package view;
 
 import java.util.ArrayList;
-import model.Animal;
 import model.AnimalDAO;
 import model.Cliente;
+import model.Animal;
+import view.GenericTableModel;
 
 /**
  *
@@ -24,11 +25,11 @@ public class AnimalTableModel extends GenericTableModel {
     public Class<?> getColumnClass(int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return String.class;
+                 return String.class;
             case 1:
                 return Integer.class;
             case 2:
-                return String.class;
+                 return String.class;
             case 3:
                 return Cliente.class;
             default:

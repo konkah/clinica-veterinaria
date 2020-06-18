@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,37 +7,80 @@ import java.util.List;
  * @author Plinio Vilela
  */
 public class Consulta {
-    private Date data;
+    private int id;
+    private String data,IdCliente, IdAnimal,exames,CRMV;
     private String historico;
     private Veterinario veterinario;
-    private List<Exame> listaDeExames;
+    private List listaDeExames;
 
-    public Consulta(Date data, String historico, Veterinario veterinario) {
+    public Consulta(int id, String data, String historico,String IdCliente,String idAnimal, String exames, String CRMV) {
+        this.id = id;
         this.data = data;
         this.historico = historico;
-        this.veterinario = veterinario;
-        listaDeExames = new ArrayList<Exame>();
+        this.IdCliente = IdCliente;
+        this.IdAnimal=IdAnimal;
+        this.exames=exames;
+        this.CRMV=CRMV;
+       
     }
 
-    public void addExame(Exame exame){
-        listaDeExames.add(exame);
+    public int getId(){
+        return id;
     }
     
-    public List<Exame> getListaDeExames() {
-        return listaDeExames;
+    public int setId(){
+        return id;
+    }
+
+  
+    public String getListaDeExames() {
+        return exames;
     }
     
-    public Date getData() {
+    public void setListaDeExames(){
+        this.listaDeExames = listaDeExames;
+    }
+    
+    
+    public String getData() {
         return data;
+        
+    }
+    
+    public void setData(String data){
+        this.data=data;
     }
 
     public String getHistorico() {
         return historico;
     }
-
-    public Veterinario getVeterinario() {
-        return veterinario;
+    
+    public void setHistorico(String historico){
+        this.historico=historico;
     }
+
+    public String getCRVM() {
+        return CRMV;
+    }
+    
+    public void setCRVM(String CRVM){
+        this.CRMV=CRMV;
+    }
+    
+    public String getIdAnimal(){
+        return IdAnimal;
+    }
+    public void setIdAnimal(String IdAnimal){
+        this.IdAnimal=IdAnimal;
+    }
+    public String GetIdCliente(){
+        return IdCliente;
+    }
+    
+    public void setIdCliente(String IdCliente){
+        this.IdCliente=IdCliente;
+    }
+
 
 
     
